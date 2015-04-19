@@ -1,0 +1,21 @@
+{
+    "name": "mindweb/cli-output-forwarder",
+    "description": "",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marcin Czołnowski",
+            "email": "marcin@czolnowski.net"
+        }
+    ],
+    "require": {
+        "mindweb/forwarder": "dev-master",
+        "symfony/console": "~2.6"
+    },
+    "autoload": {
+        "psr-0": {
+            "Mindweb\\CliOutputForwarder\\": "src"
+        }
+    }
+}
