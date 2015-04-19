@@ -28,6 +28,23 @@ class CliOutputForwarder implements Forwarder\Forwarder
      */
     public function forward(array $data)
     {
-        $this->output->writeln($data);
+        $this->output->writeln(str_repeat('--- ', 10));
+        $this->printArray($data, 1);
+    }
+
+    /**
+     * @param array $data
+     * @param $level
+     */
+    private function printArray(array $data, $level)
+    {
+        foreach ($data as $key => $value) {
+            if (is_array($value)) {
+                $this->output->writeln(str_repeat("\t", $level) . '<info>' . $key . '</info>:');
+                $this->printArray($value, $level + 1);
+            } else {
+                $this->output->writeln(str_repeat("\t", $level) . '<info>' . $key . '</info>: ' . $value);
+            }
+        }
     }
 } 
